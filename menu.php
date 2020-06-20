@@ -1,6 +1,6 @@
 <?php
   $db = mysqli_connect('localhost', 'root', '', 'libreriados');
-  $result = mysqli_query($db,"select username from user where id ='".$_SESSION['user_id']."'");
+  $result = mysqli_query($db,"select username from SfrUsuario where id_usuario ='".$_SESSION['id_usuario']."'");
   $row = mysqli_fetch_array($result);
   $username = $row['username'];
 ?>
@@ -40,7 +40,7 @@
          <ul class="nav navbar-nav navbar-right">
        <ul class="nav navbar-nav">
           <?php 
-          if(!isset($_SESSION["user_id"])):?>
+          if(!isset($_SESSION["id_usuario"])):?>
       <li><a href="./login.php"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
     <?php else:
     ?>

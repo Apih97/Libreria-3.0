@@ -1,12 +1,12 @@
 <?php
 	session_start();
 	include 'menu.php';
-if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
+if(!isset($_SESSION["id_usuario"]) || $_SESSION["id_usuario"]==null){
 	print "<script>alert(\"Acceso invalido!\");window.location='login.php';</script>";
 }
 
 	$db = mysqli_connect('localhost', 'root', '', 'libreriados');
-	$result = mysqli_query($db,"select username from user where id ='".$_SESSION['user_id']."'");
+	$result = mysqli_query($db,"select username from SfrUsuario where id_usuario ='".$_SESSION['id_usuario']."'");
 	$row = mysqli_fetch_array($result);
 	$username = $row['username'];
 	

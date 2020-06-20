@@ -5,18 +5,18 @@ if(!empty($_POST)){
 		if($_POST["username"]!=""&&$_POST["password"]!=""){
 			include "../connect-db.php";
 			
-			$user_id=null;
-			$sql1= "select * from user where (username=\"$_POST[username]\" or email=\"$_POST[username]\") and password=\"$_POST[password]\" ";
+			$id_usuario=null;
+			$sql1= "select * from SfrUsuario where (username=\"$_POST[username]\" or vCorreo=\"$_POST[username]\") and vContraseña=\"$_POST[password]\" ";
 			$query = $connection->query($sql1);
 			while ($r=$query->fetch_array()) {
-				$user_id=$r["id"];
+				$id_usuario=$r["id_usuario"];
 				break;
 			}
-			if($user_id==null){
+			if($id_usuario==null){
 				print "<script>alert(\"Acceso invalido.\");window.location='../login.php';</script>";
 			}else{
 				session_start();
-				$_SESSION["user_id"]=$user_id;
+				$_SESSION["id_usuario"]=$id_usuario;
 				print "<script>window.location='../home.php';</script>";				
 			}
 		}
