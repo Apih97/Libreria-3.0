@@ -1,6 +1,6 @@
 <?php
   $db = mysqli_connect('localhost', 'root', '', 'libreriados');
-  $result = mysqli_query($db,"select username from user where id ='".$_SESSION['user_id']."'");
+  $result = mysqli_query($db,"select username from SfrUsuario where id_usuario ='".$_SESSION['id_usuario']."'");
   $row = mysqli_fetch_array($result);
   $username = $row['username'];
 ?>
